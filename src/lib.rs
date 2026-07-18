@@ -23,7 +23,7 @@ pub use grid::{
     GridClass,
 };
 
-use rcss3::{Declaration, Rule, Selector, SimplePart};
+use rcss3::{Combinator, Declaration, Rule, Selector, SelectorSegment, SimplePart};
 
 /// 単一のクラス名を、対応するCSS宣言列に変換する。グリッド系・
 /// ボタン系・カード系・ナブバー系のいずれにもマッチしない場合は
@@ -49,7 +49,8 @@ pub fn resolve_class(class: &str) -> Option<Vec<Declaration>> {
 /// 組み合わせて使える。
 pub fn class_rule(class: &str) -> Option<Rule> {
     let declarations = resolve_class(class)?;
-    let selector: Selector = vec![vec![SimplePart::Class(class.to_string())]];
+    let selector: Selector =
+        vec![SelectorSegment { combinator: Combinator::Descendant, compound: vec![SimplePart::Class(class.to_string())] }];
     Some(Rule { selectors: vec![selector], declarations })
 }
 
@@ -75,7 +76,8 @@ mod tests {
     #[test]
     fn class_rule_builds_a_class_selector_rule() {
         let rule = class_rule("btn").expect("btn should resolve");
-        let expected_selector: Selector = vec![vec![SimplePart::Class("btn".to_string())]];
+        let expected_selector: Selector =
+            vec![SelectorSegment { combinator: Combinator::Descendant, compound: vec![SimplePart::Class("btn".to_string())] }];
         assert_eq!(rule.selectors, vec![expected_selector]);
         assert!(rule.declarations.iter().any(|d| d.property == "cursor"));
     }
