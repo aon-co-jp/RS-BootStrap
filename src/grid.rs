@@ -174,7 +174,7 @@ fn trim_trailing_zeros(value: f64) -> String {
 }
 
 fn decl(property: &str, value: &str) -> Declaration {
-    Declaration { property: property.to_string(), value: value.to_string() }
+    Declaration { property: property.to_string(), value: value.to_string(), important: false }
 }
 
 #[cfg(test)]

@@ -23,7 +23,7 @@ pub use grid::{
     GridClass,
 };
 
-use rcss3::{Combinator, Declaration, Rule, Selector, SelectorSegment, SimplePart};
+use rcss3::{Combinator, Declaration, MediaQuery, Rule, Selector, SelectorSegment, SimplePart};
 
 /// 単一のクラス名を、対応するCSS宣言列に変換する。グリッド系・
 /// ボタン系・カード系・ナブバー系のいずれにもマッチしない場合は
@@ -46,12 +46,24 @@ pub fn resolve_class(class: &str) -> Option<Vec<Declaration>> {
 
 /// クラス名1個を`rcss3::Rule`(セレクタ`.<class>` + 宣言列)に変換する。
 /// `rcss3::compute_style`や`parse_stylesheet`の出力とそのまま
-/// 組み合わせて使える。
+/// 組み合わせて使える。`col-md-4`のようなブレークポイント付き
+/// クラスは、そのブレークポイントの`min-width`を`@media`条件として
+/// `Rule.media`に設定する(2026-07-20実装——`ColClass.breakpoint`は
+/// 従来パースされるだけで`Rule`構築時に一切使われず、レスポンシブな
+/// `@media`出力は「配線されていない」未着手のまま放置されていた。
+/// `rcss3::cascade::compute_style`が`Rule.media`を実際に評価する
+/// ようになったのに合わせて接続した)。
 pub fn class_rule(class: &str) -> Option<Rule> {
     let declarations = resolve_class(class)?;
     let selector: Selector =
         vec![SelectorSegment { combinator: Combinator::Descendant, compound: vec![SimplePart::Class(class.to_string())] }];
-    Some(Rule { selectors: vec![selector], declarations })
+    let media = match parse_grid_class(class) {
+        Some(GridClass::Col(ColClass { breakpoint: Some(bp), .. })) => {
+            Some(MediaQuery { min_width_px: Some(bp.min_width_px()), ..Default::default() })
+        }
+        _ => None,
+    };
+    Some(Rule { selectors: vec![selector], declarations, media })
 }
 
 /// 複数のクラス名から、マッチしたものだけをまとめて`Rule`列に変換する
@@ -80,6 +92,32 @@ mod tests {
             vec![SelectorSegment { combinator: Combinator::Descendant, compound: vec![SimplePart::Class("btn".to_string())] }];
         assert_eq!(rule.selectors, vec![expected_selector]);
         assert!(rule.declarations.iter().any(|d| d.property == "cursor"));
+    }
+
+    #[test]
+    fn unscoped_grid_class_has_no_media_query() {
+        let rule = class_rule("col-6").expect("col-6 should resolve");
+        assert_eq!(rule.media, None);
+    }
+
+    #[test]
+    fn breakpoint_scoped_col_class_carries_its_min_width_media_query() {
+        let rule = class_rule("col-md-4").expect("col-md-4 should resolve");
+        assert_eq!(rule.media, Some(MediaQuery { min_width_px: Some(768), ..Default::default() }));
+    }
+
+    #[test]
+    fn different_breakpoints_produce_different_min_widths() {
+        let sm = class_rule("col-sm-6").expect("col-sm-6 should resolve").media.unwrap();
+        let xl = class_rule("col-xl-6").expect("col-xl-6 should resolve").media.unwrap();
+        assert_eq!(sm.min_width_px, Some(576));
+        assert_eq!(xl.min_width_px, Some(1200));
+    }
+
+    #[test]
+    fn non_grid_classes_never_carry_a_media_query() {
+        assert_eq!(class_rule("btn-primary").unwrap().media, None);
+        assert_eq!(class_rule("card-body").unwrap().media, None);
     }
 
     #[test]
