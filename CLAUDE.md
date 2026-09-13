@@ -1,7 +1,18 @@
-# 開発方針＆開発環境ルール(RBootStrap)
+# 開発方針＆開発環境ルール(RS-BootStrap)
 
-作業ドライブは`F:\open-runo`。この節は[`open-raid-z`](https://github.com/aon-co-jp/open-raid-z)の
+作業ドライブは`F:\runo`。この節は[`open-raid-z`](https://github.com/aon-co-jp/open-raid-z)の
 `CLAUDE.md`を正本とし、各プロジェクトへコピーして同期する方針に準じる。
+
+## リポジトリ改称(2026-09-13)
+
+`RBootstrap`→`RS-BootStrap`へGitHub上でrename済み(crate名も
+`rbootstrap`→`rs-bootstrap`)。`aruaru.pro`(コンコナラ型スキル
+マーケットプレイス+求人サイト統合の新規プロジェクト)向けの
+フロント基盤整備に合わせた、`RFrontEnd`傘下プロジェクトのネーミング
+統一の一環(`RJSON`→`RS-JSON`統合・`RTypeScript`→`RS-TypeScript`・
+`RS-JavaScript`新設)。以下の記述内の`RBootStrap`/`RBootstrap`表記は
+改称前の履歴として残す(過去に`RBootStrap`→`RBootstrap`の大文字/小文字
+リネームが既にあったため、今回で名称変更は2回目)。
 
 ## このリポジトリの役割
 

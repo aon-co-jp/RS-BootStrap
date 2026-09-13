@@ -3,12 +3,12 @@
 version = 3
 
 [[package]]
-name = "rbootstrap"
+name = "rcss3"
+version = "0.1.0"
+
+[[package]]
+name = "rs-bootstrap"
 version = "0.1.0"
 dependencies = [
  "rcss3",
 ]
-
-[[package]]
-name = "rcss3"
-version = "0.1.0"
