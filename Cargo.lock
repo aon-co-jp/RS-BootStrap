@@ -5,6 +5,7 @@ version = 3
 [[package]]
 name = "rcss3"
 version = "0.1.0"
+source = "git+https://github.com/aon-co-jp/RS-CSS#8bc2dd9b059e6c55c113402226e64decb66c9532"
 
 [[package]]
 name = "rs-bootstrap"

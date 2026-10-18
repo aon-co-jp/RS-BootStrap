@@ -26,3 +26,12 @@ Rustã€‚`rcss3`(RCSS)ã¸ã®ä¾å­˜ä»¥å¤–ã€å¤–éƒ¨ã‚¯ãƒ¬ãƒ¼ãƒˆãªã—ã€‚
 - [RFrontEnd](https://github.com/aon-co-jp/RFrontEnd) â€” è¦ªãƒªãƒã‚¸ãƒˆãƒª(å…¨ä½“æ§‹æˆ)
 - [RCSS](https://github.com/aon-co-jp/RCSS) â€” ã‚»ãƒ¬ã‚¯ã‚¿/å®£è¨€/ã‚«ã‚¹ã‚±ãƒ¼ãƒ‰ã®å‹ã‚’æä¾›
 - [open-raid-z](https://github.com/aon-co-jp/open-raid-z) â€” é–‹ç™ºãƒ«ãƒ¼ãƒ«ã®æ­£æœ¬
+
+## g‚¢•û / Usage
+
+`cargo run --example basic`(`examples/basic.rs`)‚ğQÆBˆË‘¶ `rcss3` ‚ÍGitHub‚Ì [RS-CSS](https://github.com/aon-co-jp/RS-CSS) ‚©‚çæ“¾‚µ‚Ü‚·B / See `examples/basic.rs` (`cargo run --example basic`). The `rcss3` dependency is fetched from [RS-CSS](https://github.com/aon-co-jp/RS-CSS).
+
+## ƒ‰ƒCƒZƒ“ƒX / License
+
+Apache-2.0 ‚Ü‚½‚Í MIT(‚Ç‚¿‚ç‚©‘I‘ğ)B / Apache-2.0 OR MIT, at your option. See `LICENSE-APACHE` / `LICENSE-MIT`.
+
