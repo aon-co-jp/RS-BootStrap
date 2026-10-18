@@ -122,5 +122,5 @@ collapse/carousel等)。
   [aon-co-jp/RBootStrap](https://github.com/aon-co-jp/RBootStrap)へ
   初回push。次回以降: flexbox計算・レスポンシブ`@media`出力の実装。
 
-- **2026-10-18 v0.1.0���J**: rcss3��path�ˑ�����git�ˑ�(aon-co-jp/RS-CSS)�֕ύX���P�̂Ńr���h�\�ɁAexamples/basic.rs�ELICENSE(Apache-2.0 OR MIT)�ǉ��A�S�����̋@��������Ɍ��J�B�t�H�[��/���[�_��/�h���b�v�_�E�����̑Θb�R���|�[�l���g�A��flexbox�܂�Ԃ��v�Z�͖�����̂܂�(���C�u�����̂��߃o�C�i��Release����)�B
+- **2026-10-18 v0.1.0公開**: rcss3をpath依存からgit依存(aon-co-jp/RS-CSS)へ変更し単体でビルド可能に、examples/basic.rs・LICENSE(Apache-2.0 OR MIT)追加、全履歴の機密検査後に公開。フォーム/モーダル/ドロップダウン等の対話コンポーネント、実flexbox折り返し計算は未着手のまま(ライブラリのためバイナリRelease無し)。
 

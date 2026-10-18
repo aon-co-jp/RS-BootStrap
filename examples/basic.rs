@@ -1,4 +1,4 @@
-﻿use rs_bootstrap::{class_rule, generate_stylesheet};
+use rs_bootstrap::{class_rule, generate_stylesheet};
 
 fn main() {
     // 1クラス名 → CSSルール / one class name -> one CSS rule

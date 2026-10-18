@@ -1,4 +1,4 @@
-﻿[package]
+[package]
 name = "rs-bootstrap"
 description = "RS-BootStrap (formerly RBootstrap): a from-scratch Rust Bootstrap-compatible grid system and component style generator, built on rcss3's selector/declaration types."
 version = "0.1.0"

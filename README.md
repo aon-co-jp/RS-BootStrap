@@ -27,11 +27,11 @@ Rust。`rcss3`(RCSS)への依存以外、外部クレートなし。
 - [RCSS](https://github.com/aon-co-jp/RCSS) — セレクタ/宣言/カスケードの型を提供
 - [open-raid-z](https://github.com/aon-co-jp/open-raid-z) — 開発ルールの正本
 
-## �g���� / Usage
+## 使い方 / Usage
 
-`cargo run --example basic`(`examples/basic.rs`)���Q�ƁB�ˑ� `rcss3` ��GitHub�� [RS-CSS](https://github.com/aon-co-jp/RS-CSS) ����擾���܂��B / See `examples/basic.rs` (`cargo run --example basic`). The `rcss3` dependency is fetched from [RS-CSS](https://github.com/aon-co-jp/RS-CSS).
+`cargo run --example basic`(`examples/basic.rs`)を参照。依存 `rcss3` はGitHubの [RS-CSS](https://github.com/aon-co-jp/RS-CSS) から取得します。 / See `examples/basic.rs` (`cargo run --example basic`). The `rcss3` dependency is fetched from [RS-CSS](https://github.com/aon-co-jp/RS-CSS).
 
-## ���C�Z���X / License
+## ライセンス / License
 
-Apache-2.0 �܂��� MIT(�ǂ��炩�I��)�B / Apache-2.0 OR MIT, at your option. See `LICENSE-APACHE` / `LICENSE-MIT`.
+Apache-2.0 または MIT(どちらか選択)。 / Apache-2.0 OR MIT, at your option. See `LICENSE-APACHE` / `LICENSE-MIT`.
 
