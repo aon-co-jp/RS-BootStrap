@@ -1,3 +1,5 @@
+> Latest translations / 翻訳の最新版: [0-LATEST-TRANSLATIONS.md](0-LATEST-TRANSLATIONS.md)
+
 # RBootStrap
 
 Bootstrap相当のCSSフレームワーク(グリッドシステム+基本コンポーネント)を、
