@@ -1,3 +1,3 @@
 source: aon-co-jp/RS-BootStrap
-commit: f7d3d29fe7891bdb745fc1e8ed55507119a32394
-updated: 2026-11-27T06:09:54Z
+commit: 03e432d9776a02a3b4fbdf52164d8b26025aa97b
+updated: 2026-11-27T06:13:10Z
